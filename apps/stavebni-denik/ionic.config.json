@@ -1,0 +1,7 @@
+{
+  "name": "Stavební deník",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

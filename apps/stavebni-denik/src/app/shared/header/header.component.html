@@ -1,0 +1,27 @@
+<ion-toolbar>
+  <ion-menu-button
+    slot="start"
+    autoHide="false"
+    id="main"
+    icon="reorder-four-outline"
+  ></ion-menu-button>
+  <ion-button slot="end" fill="clear" (click)="goBack()">
+    <ion-icon icon="arrow-back-outline"></ion-icon>
+  </ion-button>
+  <ion-title slot="start">
+    <ng-container *ngIf="projects">
+      <ion-select
+        interface="popover"
+        [value]="selectedProject"
+        okText="Okay"
+        cancelText="Dismiss"
+        (ionChange)="navigateTo($event)">
+        <ion-select-option
+          *ngFor="let projetct of projects"
+          [value]="projetct.projectId">
+          {{ projetct.name }}
+        </ion-select-option>
+      </ion-select>
+    </ng-container>
+  </ion-title>
+</ion-toolbar>

@@ -1,0 +1,9 @@
+<ion-item *ngFor="let option of itemOptions">
+  <ion-label>{{ option.name }}</ion-label>
+  <ion-checkbox
+    slot="end"
+    [value]="option.value"
+    [checked]="option.isChecked"
+    (ionChange)="checkboxChange($event)"
+  ></ion-checkbox>
+</ion-item>

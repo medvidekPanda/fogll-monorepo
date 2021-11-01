@@ -1,0 +1,73 @@
+<ng-container *ngIf="eventInfo$ | async as eventInfo">
+  <ion-content fullscreen class="ion-padding">
+    <h4 class="ion-no-margin">
+      <ion-datetime
+        class="ion-no-padding ion-text-center ion-margin-bottom"
+        displayFormat="DD. MM. YYYY"
+        [value]="eventInfo.date"
+      ></ion-datetime>
+    </h4>
+
+    <ion-segment (ionChange)="segmentChanged($event)" value="info">
+      <ion-segment-button value="info">
+        <ion-label>Informace</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="weather">
+        <ion-label>Počasí</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="attachements">
+        <ion-label>Přílohy</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ng-container *ngIf="viewType === 'info'">
+      <ng-container *ngIf="daySubEvents$ | async as daySubEvents; else noItems">
+        <ion-list-header>
+          <ion-label>Seznam denních prací</ion-label>
+        </ion-list-header>
+        <ion-list class="ion-no-margin ion-margin-top">
+          <ion-item-sliding *ngFor="let daySubEvent of daySubEvents">
+            <ion-item (click)="addNewEvent({ event: daySubEvent })">
+              <ion-avatar slot="start">
+                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+              </ion-avatar>
+              <ion-label>
+                <h2>{{ daySubEvent.title }}</h2>
+                <p>{{ daySubEvent.description }}</p>
+              </ion-label>
+            </ion-item>
+
+            <ion-item-options side="end" (ionSwipe)="deteteItem(daySubEvent)">
+              <ion-item-option (click)="deteteItem(daySubEvent)" color="danger">Smazat</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ng-container>
+
+      <ng-template #noItems>
+        <ion-label>
+          <h1 class="ion-text-center ion-padding ion-margin">
+            Žádné záznamy pro tento den
+          </h1>
+        </ion-label>
+      </ng-template>
+    </ng-container>
+
+    <div *ngIf="viewType === 'weather'">Počasí</div>
+    <div *ngIf="viewType === 'attachements'">Přílohy</div>
+  </ion-content>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button
+      (click)="
+        addNewEvent({
+          eventId: eventInfo.eventId,
+          date: eventInfo.date,
+          isNew: true
+        })
+      "
+    >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ng-container>

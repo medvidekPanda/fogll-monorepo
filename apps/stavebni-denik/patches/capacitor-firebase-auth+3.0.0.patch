@@ -1,0 +1,12 @@
+diff --git a/node_modules/capacitor-firebase-auth/dist/esm/definitions.js b/node_modules/capacitor-firebase-auth/dist/esm/definitions.js
+index fdde090..8009951 100644
+--- a/node_modules/capacitor-firebase-auth/dist/esm/definitions.js
++++ b/node_modules/capacitor-firebase-auth/dist/esm/definitions.js
+@@ -1,5 +1,5 @@
+-import 'firebase/auth';
+-import firebase from 'firebase/app';
++import 'firebase/compat/auth';
++import firebase from 'firebase/compat/app';
+ export class GoogleSignInResult {
+     constructor(idToken) {
+         this.idToken = idToken;

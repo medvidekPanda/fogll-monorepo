@@ -1,0 +1,11 @@
+<ion-toolbar>
+  <ion-title>
+    <ng-content select="[title]"></ng-content>
+  </ion-title>
+  <div slot="end" style="display: flex; align-items: center;">
+    <ng-content select="[saveButton]"></ng-content>
+    <ion-button fill="flat" (click)="closeDetail()" size="small">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+  </div>
+</ion-toolbar>

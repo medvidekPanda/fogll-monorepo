@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ng-container *ngIf="user$ | async as user">
+      <ion-title
+        >{{ user.value.firstName }} {{ user.value.lastName }}</ion-title
+      >
+    </ng-container>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list inset="true">
+    <ion-item (click)="onMenuSelect('dashboard')">Dashboard</ion-item>
+    <ng-container *ngIf="projectId$ | async as projectId">
+      <ion-item (click)="onMenuSelect('project-management/' + projectId)"
+        >Denní záznamy</ion-item
+      >
+    </ng-container>
+    <ion-item (click)="onMenuSelect('atendence')">Docházka</ion-item>
+    <ion-item (click)="onMenuSelect('/users')">Uživatelé</ion-item>
+    <ion-item (click)="onMenuSelect('settings')">Nastavení projektu</ion-item>
+    <ion-item (click)="onMenuSelect('settings')">Nastavení aplikace</ion-item>
+    <ion-button expand="full" fill="clear" (click)="logout()"
+      >Logout</ion-button
+    >
+  </ion-list>
+</ion-content>

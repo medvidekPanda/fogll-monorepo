@@ -1,0 +1,29 @@
+{
+	"appId": "net.fogll.denik",
+	"appName": "Stavebni deník",
+	"bundledWebRuntime": false,
+	"npmClient": "npm",
+	"webDir": "../../dist/apps/stavebni-denik",
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 0
+		},
+		"CapacitorFirebaseAuth": {
+			"providers": [
+				"email"
+			],
+			"languageCode": "cz",
+			"nativeAuth": false,
+			"properties": {
+				"google": {}
+			},
+			"permissions": {
+				"google": [
+					"profile",
+					"https://www.googleapis.com/auth/drive"
+				]
+			}
+		}
+	},
+	"cordova": {}
+}

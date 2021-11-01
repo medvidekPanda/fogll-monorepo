@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "110344991028",
+    "project_id": "stavebni-denik-test",
+    "storage_bucket": "stavebni-denik-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110344991028:android:63db6fe7dc1839ddabb561",
+        "android_client_info": {
+          "package_name": "net.fogll.denik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110344991028-itiv34iij969omuod75pevisj77kj9ae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCjklewKtvwBjYYYRNq1YqWn-PKDFLXW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110344991028-itiv34iij969omuod75pevisj77kj9ae.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "110344991028-kmetmcse3k1huvlgudob1120bvo4vlk5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "net.fogll.denit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

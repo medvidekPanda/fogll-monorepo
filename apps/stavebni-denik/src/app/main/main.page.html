@@ -1,0 +1,26 @@
+<ion-menu side="start" menuId="first" contentId="main" swipeGesture="true">
+  <app-menu class="flex-fill-column"></app-menu>
+</ion-menu>
+
+<ion-header>
+  <ng-container *ngIf="projects$ | async as projects">
+    <app-header
+      [projects]="projects"
+      [selectedProject]="projects[0].projectId"
+    ></app-header>
+  </ng-container>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-spinner
+    *ngIf="isLoading$ | async;"
+    name="dots"
+  ></ion-spinner> -->
+  <!-- <ion-spinner
+    *ngIf="isLoading$ | async; else data"
+    name="dots"
+  ></ion-spinner>
+  <ng-template #data>
+  </ng-template> -->
+  <ion-router-outlet id="main" [animated]="animated"></ion-router-outlet>
+</ion-content>

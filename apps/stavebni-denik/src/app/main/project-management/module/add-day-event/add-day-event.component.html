@@ -1,0 +1,17 @@
+<ion-content fullscreen class="ion-padding">
+  <ion-title>Přidat nový záznam</ion-title>
+  <!-- {{ projectId }} -->
+  <form [formGroup]="dayEvent" (ngSubmit)="addEvent()">
+    <formly-form
+      [form]="dayEvent"
+      [fields]="fields"
+      [model]="model"
+    ></formly-form>
+    <ion-button expand="block" fill="outline" (click)="goBack()">
+      Zrušit
+    </ion-button>
+    <ion-button expand="block" type="submit" [disabled]="!dayEvent.valid">
+      Odeslat
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-searchbar showCancelButton="focus" animated></ion-searchbar>
+<ng-container *ngIf="users$ | async as users">
+  <ion-refresher slot="fixed">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngFor="let user of users">
+    <ion-item-sliding>
+      <ion-list (click)="addEditUser(user)">
+        <app-user-list-item [user]="user"></app-user-list-item>
+      </ion-list>
+      <ion-item-options side="end">
+        <ion-item-option color="danger">Smazat</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ng-container>
+</ng-container>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addEditUser()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

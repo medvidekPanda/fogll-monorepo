@@ -1,0 +1,22 @@
+<ion-header></ion-header>
+<ion-content fullscreen>
+  <div class="ion-padding" style="margin-top: 64px">
+    <div class="ion-padding">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <formly-form
+          [form]="loginForm"
+          [fields]="fields"
+          [model]="loginForm"
+        ></formly-form>
+        <ion-button
+          expand="block"
+          class="ion-margin-top"
+          type="submit"
+          [disabled]="!loginForm.valid"
+          >Login</ion-button
+        >
+        V1
+      </form>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <app-modal-header>
+    <p title>{{ isNew ? 'Přidat nový záznam' : 'Editace záznamu' }}</p>
+    <ion-button
+      fill="flat"
+      expand="block"
+      [disabled]="buttonDisabled$ | async"
+      size="small"
+      (click)="onSaveClick()"
+      saveButton
+    >
+      <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+    </ion-button>
+  </app-modal-header>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="users$ | async">
+    <form [formGroup]="form" class="ion-margin-top">
+      <formly-form [form]="form" [fields]="fields" [model]="event" (modelChange)="formChanged()"></formly-form>
+      <ion-button (click)="takePicture()">Take picture</ion-button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="imgTest$ | async as images">
+    <ng-container *ngIf="images.length > 0">
+      <ion-img *ngFor="let img of images;" [src]="img"></ion-img>
+    </ng-container>
+  </ng-container>
+
+</ion-content>

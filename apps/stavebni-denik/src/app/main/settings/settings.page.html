@@ -1,0 +1,8 @@
+<ion-content>
+  <ion-item>
+    <ion-label>Název projektu: </ion-label>
+    <ion-input (ionChange)="onInputBlur($event)"></ion-input>
+  </ion-item>
+  <ion-button expand="block" fill="outline" (click)="addNewProject()">Přidat nový projekt</ion-button>
+  <ion-button expand="block" color="danger" class="ion-margin-bottom" (click)="removeProject()">Smazat projekt</ion-button>
+</ion-content>

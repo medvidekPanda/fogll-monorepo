@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "stavebni-denik-test": {
+      "hosting": {
+        "app": [
+          "stavebni-denik-test"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "stavebni-denik-test"
+  }
+}
