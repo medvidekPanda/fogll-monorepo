@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "elektro-inspektor": "apps/elektro-inspektor",
+    "elektro-inspektor-e2e": "apps/elektro-inspektor-e2e",
     "stavebni-denik": "apps/stavebni-denik"
   }
 }

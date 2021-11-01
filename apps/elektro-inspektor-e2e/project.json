@@ -1,0 +1,28 @@
+{
+  "root": "apps/elektro-inspektor-e2e",
+  "sourceRoot": "apps/elektro-inspektor-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/elektro-inspektor-e2e/cypress.json",
+        "devServerTarget": "elektro-inspektor:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "elektro-inspektor:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/elektro-inspektor-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["elektro-inspektor"]
+}

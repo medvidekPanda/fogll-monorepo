@@ -1,0 +1,100 @@
+{
+  "projectType": "application",
+  "root": "apps/elektro-inspektor",
+  "sourceRoot": "apps/elektro-inspektor/src",
+  "prefix": "fogll-monorepo",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/elektro-inspektor",
+        "index": "apps/elektro-inspektor/src/index.html",
+        "main": "apps/elektro-inspektor/src/main.ts",
+        "polyfills": "apps/elektro-inspektor/src/polyfills.ts",
+        "tsConfig": "apps/elektro-inspektor/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/elektro-inspektor/src/favicon.ico",
+          "apps/elektro-inspektor/src/assets"
+        ],
+        "styles": [
+          "apps/elektro-inspektor/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/elektro-inspektor/src/environments/environment.ts",
+              "with": "apps/elektro-inspektor/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "elektro-inspektor:build:production"
+        },
+        "development": {
+          "browserTarget": "elektro-inspektor:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "elektro-inspektor:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/elektro-inspektor/src/**/*.ts",
+          "apps/elektro-inspektor/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/elektro-inspektor"
+      ],
+      "options": {
+        "jestConfig": "apps/elektro-inspektor/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
