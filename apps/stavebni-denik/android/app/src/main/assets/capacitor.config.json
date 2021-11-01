@@ -3,7 +3,7 @@
 	"appName": "Stavebni deník",
 	"bundledWebRuntime": false,
 	"npmClient": "npm",
-	"webDir": "www",
+	"webDir": "../../dist/apps/stavebni-denik",
 	"plugins": {
 		"SplashScreen": {
 			"launchShowDuration": 0
