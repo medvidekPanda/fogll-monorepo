@@ -2,11 +2,12 @@
   <nb-layout-header fixed>
     <!-- Insert header here -->
   </nb-layout-header>
-
-  <!-- <nb-sidebar> sidebar</nb-sidebar> -->
+  <nb-sidebar>
+    <nb-menu [items]="items"> </nb-menu>
+  </nb-sidebar>
   <nb-layout-column>
-    <button nbButton status="secondary">Nějaký button</button>
-    <!-- <router-outlet></router-outlet> -->
+    <button routerLink="/new-protocol">Customers</button>
+    <router-outlet></router-outlet>
   </nb-layout-column>
 
   <nb-layout-footer fixed>

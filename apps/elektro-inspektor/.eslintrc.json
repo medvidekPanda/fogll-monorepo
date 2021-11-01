@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "fogll-monorepo",
+            "prefix": "inspektor",
             "style": "kebab-case"
           }
         ]

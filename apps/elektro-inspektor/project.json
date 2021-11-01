@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/elektro-inspektor",
   "sourceRoot": "apps/elektro-inspektor/src",
-  "prefix": "fogll-monorepo",
+  "prefix": "inspektor",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
