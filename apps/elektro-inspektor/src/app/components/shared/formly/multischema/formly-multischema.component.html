@@ -1,0 +1,3 @@
+<legend *ngIf="to.label">{{ to.label }}</legend>
+<p *ngIf="to.description">{{ to.description }}</p>
+<formly-field *ngFor="let f of field.fieldGroup" [field]="f"></formly-field>

@@ -1,0 +1,9 @@
+<nb-select
+  placeholder="Vyber"
+  (selectedChange)="change($event)"
+  [formlyAttributes]="field"
+>
+  <nb-option *ngFor="let option of selectOptions" [value]="option.value">{{
+    option.label
+  }}</nb-option>
+</nb-select>

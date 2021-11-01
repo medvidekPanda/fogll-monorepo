@@ -17,7 +17,17 @@ export class AppComponent {
     },
     {
       title: "protocols",
-      link: 'protocols'
+      expanded: true,
+      children: [
+        {
+          title: 'Zobrazit protokoly',
+          link: "protocols"
+        },
+        {
+          title: 'Vytvořit protokoly',
+          link: "create"
+        },
+      ],
     },
     {
       title: "users",

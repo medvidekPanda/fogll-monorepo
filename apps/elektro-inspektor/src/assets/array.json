@@ -1,0 +1,67 @@
+{
+  "schema": {
+    "definitions": {
+      "pokus1": {
+        "type": "object",
+        "properties": {
+          "test1": {
+            "title": "Address",
+            "type": "string"
+          },
+          "test3": {
+            "title": "Address",
+            "type": "string"
+          }
+        }
+      },
+      "pokus2": {
+        "type": "object",
+        "properties": {
+          "test2": {
+            "title": "Address",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "type": "object",
+    "properties": {
+      "projectRows": {
+        "type": "array",
+        "widget": {
+          "formlyConfig": {
+            "templateOptions": {
+              "addText": "Přidat nový řádek",
+              "removeText": "Odstranit řádek"
+            }
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "projectCols": {
+              "type": "array",
+              "widget": {
+                "formlyConfig": {
+                  "templateOptions": {
+                    "addText": "Přidat nový element",
+                    "removeText": "Odstranit element",
+                    "isRow": true
+                  }
+                }
+              },
+              "items": [
+                {
+                  "test1": {
+                    "title": "Address",
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

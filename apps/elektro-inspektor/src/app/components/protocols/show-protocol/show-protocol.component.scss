@@ -1,0 +1,13 @@
+:host ::ng-deep .form-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  border-bottom: 1px solid red;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+:host {
+  display: flex;
+  flex: 1;
+}

@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddNewProtocolComponent } from './add-new-protocol/add-new-protocol.component';
+import { CreateProtocolTemplateComponent } from './create-protocol-template/create-protocol-template.component';
+import { ShowProtocolComponent } from './show-protocol/show-protocol.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddNewProtocolComponent,
+    component: ShowProtocolComponent,
+    children: [],
+  },
+  {
+    path: 'create',
+    component: CreateProtocolTemplateComponent,
     children: [],
   },
 ];

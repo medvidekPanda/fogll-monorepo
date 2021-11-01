@@ -1,0 +1,29 @@
+<div fxFlex fxLayoutGap="2rem" [fxLayout]="to.isRow ? 'row' : 'column'">
+  <button
+    *ngIf="to.addText"
+    nbButton
+    status="secondary"
+    type="button"
+    (click)="add()"
+    fxFlexAlign="start"
+  >
+    {{ to.addText }}
+  </button>
+  <div
+    fxFlex
+    fxLayoutGap="1rem"
+    [fxLayout]="to.isRow ? 'row' : 'column'"
+    *ngFor="let field of field.fieldGroup; let i = index"
+  >
+    <formly-field [field]="field"></formly-field>
+    <button
+      *ngIf="to.removeText"
+      nbButton
+      status="danger"
+      size="tiny"
+      (click)="remove(i)"
+    >
+      {{ to.removeText }}
+    </button>
+  </div>
+</div>
