@@ -9,12 +9,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 })
 export class ShowProtocolComponent {
   form = new FormGroup({});
-  model = {
-    test1: 'trtrtr',
-    test3: 'refsdf',
-    test2: 'fsdfds',
-    test4: 'gtrgtrh',
-  };
+  model = {};
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
     {
@@ -58,8 +53,16 @@ export class ShowProtocolComponent {
   ];
 
   constructor() {
-    this.fields = JSON.parse(localStorage.getItem('definition') || '');
-    this.model = JSON.parse(localStorage.getItem('finalModel') || '');
+    const definition = localStorage.getItem('definition');
+    const finalModel = localStorage.getItem('finalModel');
+    if (definition) {
+      console.log('definition', definition)
+      this.fields = JSON.parse(definition);
+    }
+    if (finalModel) {
+      console.log('finalModel', finalModel)
+      this.model = JSON.parse(finalModel);
+    }
   }
 
   submit() {

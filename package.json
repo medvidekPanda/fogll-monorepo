@@ -5,6 +5,7 @@
   "scripts": {
     "start:elektro-inspektor": "nx serve elektro-inspektor",
     "start:stavebni-denik": "nx serve stavebni-denik",
+    "build:elektro-inspektor": "nx build elektro-inspektor",
     "build:stavebni-denik": "nx build stavebni-denik",
     "open-ios:stavebni-denik": "nx run stavebni-denik:open:ios",
     "open-android:stavebni-denik": "nx run stavebni-denik:open:android",

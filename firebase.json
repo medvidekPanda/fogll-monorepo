@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/apps/elektro-inspektor",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
