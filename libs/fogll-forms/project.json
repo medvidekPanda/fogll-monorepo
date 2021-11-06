@@ -1,0 +1,26 @@
+{
+    "projectType": "library",
+    "root": "libs/fogll-forms",
+    "sourceRoot": "libs/fogll-forms/src",
+    "prefix": "fogll-forms",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/fogll-forms"],
+            "options": {
+                "jestConfig": "libs/fogll-forms/jest.config.js",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/fogll-forms/src/**/*.ts",
+                    "libs/fogll-forms/src/**/*.html"
+                ]
+            }
+        }
+    },
+    "tags": []
+}

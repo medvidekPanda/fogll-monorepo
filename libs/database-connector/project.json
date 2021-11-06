@@ -1,0 +1,26 @@
+{
+    "projectType": "library",
+    "root": "libs/database-connector",
+    "sourceRoot": "libs/database-connector/src",
+    "prefix": "fogll-monorepo",
+    "targets": {
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/database-connector"],
+            "options": {
+                "jestConfig": "libs/database-connector/jest.config.js",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/database-connector/src/**/*.ts",
+                    "libs/database-connector/src/**/*.html"
+                ]
+            }
+        }
+    },
+    "tags": []
+}
