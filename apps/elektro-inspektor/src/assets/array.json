@@ -1,29 +1,5 @@
 {
   "schema": {
-    "definitions": {
-      "pokus1": {
-        "type": "object",
-        "properties": {
-          "test1": {
-            "title": "Address",
-            "type": "string"
-          },
-          "test3": {
-            "title": "Address",
-            "type": "string"
-          }
-        }
-      },
-      "pokus2": {
-        "type": "object",
-        "properties": {
-          "test2": {
-            "title": "Address",
-            "type": "string"
-          }
-        }
-      }
-    },
     "type": "object",
     "properties": {
       "projectRows": {

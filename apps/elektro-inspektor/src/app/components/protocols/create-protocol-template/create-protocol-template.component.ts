@@ -2,6 +2,20 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
+interface ProtocolRow {
+  protocolCol: ProtocolCol[];
+}
+
+interface ProtocolCol {
+  dbKey: string;
+  elementType: string;
+  elementLabel: string;
+}
+
+interface FormModel {
+  protocolRow?: ProtocolRow[];
+}
+
 @Component({
   selector: 'inspektor-show-protocol',
   templateUrl: './create-protocol-template.component.html',
@@ -9,63 +23,56 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 })
 export class CreateProtocolTemplateComponent {
   form = new FormGroup({});
-  model = {
-    protocolRow: [
-      {
-        protocolCol: [
-          { key: 'key1', type: 'input', label: 'label1' },
-          { key: 'key2', type: 'input', label: 'label2' },
-          { key: 'key3', type: 'input', label: 'label3' },
-        ],
-      },
-      {
-        protocolCol: [
-          { key: 'key4', type: 'input', label: 'label4' },
-          { key: 'key5', type: 'input', label: 'label5' },
-        ],
-      },
-    ],
-  };
+  model: FormModel = {};
   fields: FormlyFieldConfig[] = [
     {
       key: 'protocolRow',
       type: 'array',
       templateOptions: {
-        addText: 'Přidat nový řádek',
+        addText: 'Nový řádek',
         removeText: 'Odstranit řádek',
       },
       fieldArray: {
+        fieldGroupClassName: 'form-row',
         fieldGroup: [
           {
             type: 'array',
             key: 'protocolCol',
             className: 'form-row',
             templateOptions: {
-              addText: 'Přidat nový element',
+              addText: 'Nová buňka',
               removeText: 'Odstranit element',
               isRow: true,
             },
             fieldArray: {
               fieldGroup: [
                 {
-                  type: 'input',
-                  key: 'element',
+                  type: 'select',
+                  key: 'elementType',
+                  defaultValue: 'input',
                   templateOptions: {
-                    label: 'Element',
+                    label: 'Typ elementu',
+                    options: [
+                      { label: 'Vstupní pole', value: 'input' },
+                      { label: 'Textové pole', value: 'textarea' },
+                      { label: 'Zaškrtávací pole', value: 'checkbox' },
+                      { label: 'Radio button', value: 'radio' },
+                      { label: 'Dropdown', value: 'select' },
+                    ],
                   },
                 },
                 {
                   type: 'input',
-                  key: 'key',
+                  key: 'dbKey',
                   templateOptions: {
-                    label: 'Klíč',
+                    label: 'Databázový klíč',
                   },
                 },
                 {
                   type: 'input',
-                  key: 'value',
+                  key: 'elementLabel',
                   templateOptions: {
-                    label: 'Hodnota',
+                    label: 'Název',
                   },
                 },
               ],
@@ -76,44 +83,45 @@ export class CreateProtocolTemplateComponent {
     },
   ];
 
-  submit() {
-    // console.log('model', this.model);
-    this.createDefinition();
-    this.createFinalModel();
+  constructor() {
+    this.loadDefaultForm();
   }
 
-  createDefinition() {
-    const definition = this.model.protocolRow.flatMap((cols: any) => {
+  submit() {
+    this.saveDefaultForm();
+    this.createDefinition();
+  }
+
+  private saveDefaultForm() {
+    localStorage.setItem('deafultFields', JSON.stringify(this.fields));
+    localStorage.setItem('deafultModel', JSON.stringify(this.model));
+  }
+
+  private createDefinition() {
+    const definition = this.model.protocolRow?.flatMap((cols) => {
       const group = {
         fieldGroupClassName: 'form-row',
-        fieldGroup: cols.protocolCol.map((col: any) => {
+        fieldGroup: cols.protocolCol.map((col) => {
           return {
-            type: col.type || "input",
-            key: col.key,
+            type: col.elementType,
+            key: col.dbKey,
             templateOptions: {
-              label: col.label,
+              label: col.elementLabel,
             },
           };
         }),
       };
       return group;
     });
-
-    console.log('definition', definition);
     localStorage.setItem('definition', JSON.stringify(definition));
   }
 
-  createFinalModel() {
-    let finalModel = {};
-    const model = this.model.protocolRow.flatMap((cols: any) => {
-      return cols.protocolCol.map((col: any) => {
-        return { [col.key]: col.value || "hodnota" };
-      });
-    });
-    for (const element of model) {
-      finalModel = { ...element, ...finalModel };
+  private loadDefaultForm() {
+    const deafultFields = localStorage.getItem('deafultFields');
+    const deafultModel = localStorage.getItem('deafultModel');
+    if (deafultFields && deafultModel) {
+      this.fields = JSON.parse(deafultFields);
+      this.model = JSON.parse(deafultModel);
     }
-    console.log('model2', finalModel);
-    localStorage.setItem('finalModel', JSON.stringify(finalModel));
   }
 }

@@ -1,29 +1,41 @@
-<div fxFlex fxLayoutGap="2rem" [fxLayout]="to.isRow ? 'row' : 'column'">
-  <button
-    *ngIf="to.addText"
-    nbButton
-    status="secondary"
-    type="button"
-    (click)="add()"
-    fxFlexAlign="start"
-  >
-    {{ to.addText }}
-  </button>
-  <div
-    fxFlex
-    fxLayoutGap="1rem"
-    [fxLayout]="to.isRow ? 'row' : 'column'"
-    *ngFor="let field of field.fieldGroup; let i = index"
-  >
-    <formly-field [field]="field"></formly-field>
+<div
+  fxLayoutGap="2rem"
+  [fxLayout]="to.isRow ? 'row' : 'column'"
+  style="margin: 1rem 0"
+>
+  <div fxFlex fxLayout="column">
     <button
-      *ngIf="to.removeText"
+      *ngIf="to.addText"
       nbButton
-      status="danger"
-      size="tiny"
-      (click)="remove(i)"
+      status="primary"
+      size="small"
+      type="button"
+      (click)="add()"
+      fxFlexAlign="start"
     >
-      {{ to.removeText }}
+      {{ to.addText }}
     </button>
+    <div fxFlex [fxLayout]="to.isRow ? 'row' : 'column'">
+      <div
+        [fxFlex]="to.isRow ? '1 1 250px' : '1 1 0'"
+        fxLayoutGap="1rem"
+        [fxLayout]="to.isRow ? 'row' : 'column'"
+        *ngFor="let field of field.fieldGroup; let i = index"
+        style="position: relative"
+      >
+        <formly-field [field]="field"></formly-field>
+        <button
+          *ngIf="to.removeText"
+          nbButton
+          ghost
+          status="danger"
+          size="small"
+          (click)="remove(i)"
+          style="position: absolute; top: 0; right: 0"
+        >
+          <nb-icon icon="trash"></nb-icon>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

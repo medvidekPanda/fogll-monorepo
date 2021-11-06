@@ -2,6 +2,7 @@
   placeholder="Vyber"
   (selectedChange)="change($event)"
   [formlyAttributes]="field"
+  [selected]="field?.defaultValue"
 >
   <nb-option *ngFor="let option of selectOptions" [value]="option.value">{{
     option.label
