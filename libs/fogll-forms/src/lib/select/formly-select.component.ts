@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
@@ -6,13 +6,7 @@ import { FieldType } from '@ngx-formly/core';
   templateUrl: './formly-select.component.html',
   styleUrls: ['./formly-select.component.scss'],
 })
-export class FormlySelectTypeComponent extends FieldType implements OnInit {
-  selectOptions?: any[];
-
-  ngOnInit() {
-    this.selectOptions = this.field.templateOptions?.options as any[];
-  }
-
+export class FormlySelectTypeComponent extends FieldType {
   change(event: number) {
     this.formControl.setValue(event);
   }

@@ -55,7 +55,7 @@ import { FormlySelectTypeComponent } from './select/formly-select.component';
   ],
   exports: [
     FormlyModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class FogllFormsModule {}

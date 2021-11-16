@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'new-protocol',
+    redirectTo: 'protocols',
     pathMatch: 'full',
   },
   {

@@ -30,13 +30,13 @@ import {
     CommonModule,
     FlexLayoutModule,
     NbButtonModule,
-    NbLayoutModule,
-    NbSidebarModule,
-    NbThemeModule,
-    NbSelectModule,
     NbEvaIconsModule,
     NbIconModule,
+    NbLayoutModule,
+    NbSidebarModule,
     NbInputModule,
+    NbSelectModule,
+    NbThemeModule,
   ],
 })
 export class SharedModule {}

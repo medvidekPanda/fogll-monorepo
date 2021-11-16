@@ -6,13 +6,17 @@ import { ShowProtocolComponent } from './show-protocol/show-protocol.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'show',
+    pathMatch: 'full'
+  },
+  {
+    path: 'show',
     component: ShowProtocolComponent,
-    children: [],
+    pathMatch: 'full'
   },
   {
     path: 'create',
     component: CreateProtocolTemplateComponent,
-    children: [],
   },
 ];
 
@@ -20,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class NewProtocolRoutingModule {}
+export class NewProtocolRoutingModule { }

@@ -21,7 +21,7 @@ export class AppComponent {
       children: [
         {
           title: 'Zobrazit protokoly',
-          link: "protocols"
+          link: "show"
         },
         {
           title: 'Vytvořit protokoly',

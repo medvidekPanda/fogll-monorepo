@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FogllFormsModule } from '@fogll-monorepo/fogll-forms';
@@ -9,11 +10,16 @@ import { ShowProtocolComponent } from './show-protocol/show-protocol.component';
 
 @NgModule({
   declarations: [
+    CreateProtocolTemplateComponent,
     ProtocolsPageComponent,
     ShowProtocolComponent,
-    CreateProtocolTemplateComponent,
   ],
-  imports: [NewProtocolRoutingModule, SharedModule, HttpClientModule, FogllFormsModule],
-  providers: [ShowProtocolComponent],
+  imports: [
+    CommonModule,
+    NewProtocolRoutingModule,
+    SharedModule,
+    HttpClientModule,
+    FogllFormsModule,
+  ],
 })
-export class ProtocolsModule {}
+export class ProtocolsModule { }

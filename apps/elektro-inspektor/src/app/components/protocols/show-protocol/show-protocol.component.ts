@@ -21,6 +21,7 @@ export class ShowProtocolComponent {
   }
 
   submit() {
+    console.log('fields', this.fields);
     console.log('model', this.model);
     console.log('form', this.form);
   }

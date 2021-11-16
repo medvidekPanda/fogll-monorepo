@@ -75,6 +75,16 @@ export class CreateProtocolTemplateComponent {
                     label: 'Název',
                   },
                 },
+                {
+                  type: 'input',
+                  key: 'dropdownItems',
+                  templateOptions: {
+                    label: 'Položky dropdownu',
+                  },
+                  hideExpression: (model: any) => {
+                    return model.elementType !== 'select';
+                  }
+                },
               ],
             },
           },
@@ -107,6 +117,13 @@ export class CreateProtocolTemplateComponent {
             key: col.dbKey,
             templateOptions: {
               label: col.elementLabel,
+              options: [
+                { label: 'Vstupní pole', value: 'input' },
+                { label: 'Textové pole', value: 'textarea' },
+                { label: 'Zaškrtávací pole', value: 'checkbox' },
+                { label: 'Radio button', value: 'radio' },
+                { label: 'Dropdown', value: 'select' },
+              ],
             },
           };
         }),
