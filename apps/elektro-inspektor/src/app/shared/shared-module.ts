@@ -8,8 +8,7 @@ import {
   NbInputModule,
   NbLayoutModule,
   NbSelectModule,
-  NbSidebarModule,
-  NbThemeModule
+  NbSidebarModule
 } from '@nebular/theme';
 
 
@@ -24,7 +23,6 @@ import {
     NbSidebarModule,
     NbInputModule,
     NbSelectModule,
-    NbThemeModule.forRoot({ name: 'default' }),
   ],
   exports: [
     CommonModule,
@@ -36,7 +34,6 @@ import {
     NbSidebarModule,
     NbInputModule,
     NbSelectModule,
-    NbThemeModule,
   ],
 })
 export class SharedModule {}

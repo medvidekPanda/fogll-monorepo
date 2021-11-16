@@ -21,11 +21,11 @@ export class AppComponent {
       children: [
         {
           title: 'Zobrazit protokoly',
-          link: "show"
+          link: "protocols/show"
         },
         {
           title: 'Vytvořit protokoly',
-          link: "create"
+          link: "protocols/create"
         },
       ],
     },

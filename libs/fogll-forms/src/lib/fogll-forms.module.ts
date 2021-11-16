@@ -9,8 +9,7 @@ import {
   NbInputModule,
   NbLayoutModule,
   NbSelectModule,
-  NbSidebarModule,
-  NbThemeModule
+  NbSidebarModule
 } from '@nebular/theme';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
@@ -37,7 +36,6 @@ import { FormlySelectTypeComponent } from './select/formly-select.component';
     NbSidebarModule,
     NbInputModule,
     NbSelectModule,
-    NbThemeModule.forRoot({ name: 'default' }),
     FlexLayoutModule,
     FormlyBootstrapModule,
     FormlyModule.forRoot({
