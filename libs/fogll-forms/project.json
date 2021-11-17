@@ -2,7 +2,7 @@
     "projectType": "library",
     "root": "libs/fogll-forms",
     "sourceRoot": "libs/fogll-forms/src",
-    "prefix": "fogll-forms",
+    "prefix": "form",
     "targets": {
         "test": {
             "executor": "@nrwl/jest:jest",

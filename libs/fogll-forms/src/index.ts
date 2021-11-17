@@ -1,1 +1,1 @@
-export * from './lib/fogll-forms.module';
+export * from './lib/forms.module';

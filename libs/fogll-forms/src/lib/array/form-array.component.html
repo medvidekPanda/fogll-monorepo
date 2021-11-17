@@ -25,7 +25,19 @@
       >
         <formly-field [field]="field"></formly-field>
         <button
+          type="button"
+          nbButton
+          ghost
+          status="primary"
+          size="small"
+          (click)="editItem(i)"
+          style="position: absolute; top: 0; right: 1rem"
+        >
+          <nb-icon icon="settings-2-outline"></nb-icon>
+        </button>
+        <button
           *ngIf="to.removeText"
+          type="button"
           nbButton
           ghost
           status="danger"

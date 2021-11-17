@@ -1,0 +1,9 @@
+<nb-card>
+  <nb-card-body>
+    <form [formGroup]="form" fxFlex (ngSubmit)="submit()">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+      <button type="submit" nbButton status="primary">Uložit</button>
+      <button type="button" nbButton status="danger" (click)="closeDialog()">Zavřít</button>
+    </form>
+  </nb-card-body>
+</nb-card>

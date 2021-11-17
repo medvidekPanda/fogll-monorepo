@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { NbDialogService } from '@nebular/theme';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { take } from 'rxjs';
+import { SelectItemsComponent } from '../select-items/select-items.component';
 
 interface ProtocolRow {
   protocolCol: ProtocolCol[];
@@ -13,6 +16,7 @@ interface ProtocolCol {
 }
 
 interface FormModel {
+  protocolLabel?: string;
   protocolRow?: ProtocolRow[];
 }
 
@@ -31,6 +35,10 @@ export class CreateProtocolTemplateComponent {
       templateOptions: {
         addText: 'Nový řádek',
         removeText: 'Odstranit řádek',
+        editItem: ($event: any) => {
+          console.log($event)
+          this.openWindow();
+        }
       },
       fieldArray: {
         fieldGroupClassName: 'form-row',
@@ -43,6 +51,10 @@ export class CreateProtocolTemplateComponent {
               addText: 'Nová buňka',
               removeText: 'Odstranit element',
               isRow: true,
+              editItem: ($event: any) => {
+                console.log($event)
+                this.openWindow();
+              }
             },
             fieldArray: {
               fieldGroup: [
@@ -57,7 +69,7 @@ export class CreateProtocolTemplateComponent {
                       { label: 'Textové pole', value: 'textarea' },
                       { label: 'Zaškrtávací pole', value: 'checkbox' },
                       { label: 'Radio button', value: 'radio' },
-                      { label: 'Dropdown', value: 'select' },
+                      { label: 'Select', value: 'select' },
                     ],
                   },
                 },
@@ -74,17 +86,7 @@ export class CreateProtocolTemplateComponent {
                   templateOptions: {
                     label: 'Název',
                   },
-                },
-                {
-                  type: 'input',
-                  key: 'dropdownItems',
-                  templateOptions: {
-                    label: 'Položky dropdownu',
-                  },
-                  hideExpression: (model: any) => {
-                    return model.elementType !== 'select';
-                  }
-                },
+                }
               ],
             },
           },
@@ -93,8 +95,23 @@ export class CreateProtocolTemplateComponent {
     },
   ];
 
-  constructor() {
+  selectValues: any[] = []
+
+  constructor(private dialogService: NbDialogService) {
     this.loadDefaultForm();
+  }
+
+  clearStorage() {
+    localStorage.clear();
+  }
+
+  openWindow() {
+    const dialog = this.dialogService.open(
+      SelectItemsComponent,
+    );
+    dialog.onClose.pipe(
+      take(1)
+    ).subscribe(res => this.selectValues = res);
   }
 
   submit() {
@@ -117,13 +134,7 @@ export class CreateProtocolTemplateComponent {
             key: col.dbKey,
             templateOptions: {
               label: col.elementLabel,
-              options: [
-                { label: 'Vstupní pole', value: 'input' },
-                { label: 'Textové pole', value: 'textarea' },
-                { label: 'Zaškrtávací pole', value: 'checkbox' },
-                { label: 'Radio button', value: 'radio' },
-                { label: 'Dropdown', value: 'select' },
-              ],
+              options: this.selectValues
             },
           };
         }),

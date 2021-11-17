@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RepeatRowComponent } from './formly-array.component';
+import { RepeatRowComponent } from './form-array.component';
 
 describe('RepeatRowComponent', () => {
   let component: RepeatRowComponent;

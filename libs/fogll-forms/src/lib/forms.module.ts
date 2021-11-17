@@ -13,19 +13,20 @@ import {
 } from '@nebular/theme';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
-import { FormlyArrayComponent } from './array/formly-array.component';
-import { FormlyInputTypeComponent } from './input/formly-input.component';
-import { MultiSchemaTypeComponent } from './multischema/formly-multischema.component';
-import { ObjectTypeComponent } from './object/formly-object.component';
-import { FormlySelectTypeComponent } from './select/formly-select.component';
+import { FormArrayComponent } from './array/form-array.component';
+import { FormInputTypeComponent } from './input/form-input.component';
+import { FormMultiSchemaTypeComponent } from './multischema/form-multischema.component';
+import { FormObjectTypeComponent } from './object/form-object.component';
+import { FormSelectTypeComponent } from './select/form-select.component';
 
 @NgModule({
   declarations: [
-    FormlyArrayComponent,
-    MultiSchemaTypeComponent,
-    ObjectTypeComponent,
-    FormlySelectTypeComponent,
-    FormlyInputTypeComponent,
+    FormArrayComponent,
+    FormInputTypeComponent,
+    FormSelectTypeComponent,
+    FormSelectTypeComponent,
+    FormMultiSchemaTypeComponent,
+    FormObjectTypeComponent,
   ],
   imports: [
     CommonModule,
@@ -40,13 +41,13 @@ import { FormlySelectTypeComponent } from './select/formly-select.component';
     FormlyBootstrapModule,
     FormlyModule.forRoot({
       types: [
-        { name: 'array', component: FormlyArrayComponent },
-        { name: 'multischema', component: MultiSchemaTypeComponent },
-        { name: 'object', component: ObjectTypeComponent },
-        { name: 'enum', component: FormlySelectTypeComponent },
-        { name: 'select', component: FormlySelectTypeComponent },
+        { name: 'array', component: FormArrayComponent },
+        { name: 'multischema', component: FormMultiSchemaTypeComponent },
+        { name: 'object', component: FormObjectTypeComponent },
+        { name: 'enum', component: FormSelectTypeComponent },
+        { name: 'select', component: FormSelectTypeComponent },
         { name: 'string', extends: 'input' },
-        { name: 'input', component: FormlyInputTypeComponent },
+        { name: 'input', component: FormInputTypeComponent },
       ],
     }),
     ReactiveFormsModule,

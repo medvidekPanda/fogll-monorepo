@@ -1,4 +1,5 @@
-<form [formGroup]="form" fxFlex (ngSubmit)="submit()">
+<form [formGroup]="form" fxFlex fxLayoutGap="1rem" (ngSubmit)="submit()">
   <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
   <button type="submit" nbButton status="primary" style="margin-top: 1rem">Uložit</button>
+  <button type="button" nbButton status="danger" style="margin-top: 1rem" (click)="clearStorage()">Smazat storage</button>
 </form>
