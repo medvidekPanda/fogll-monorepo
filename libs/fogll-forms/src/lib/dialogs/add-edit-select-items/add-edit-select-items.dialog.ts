@@ -4,11 +4,13 @@ import { NbDialogRef } from '@nebular/theme';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
 @Component({
-  selector: 'inspektor-select-items',
-  templateUrl: './select-items.component.html',
-  styleUrls: ['./select-items.component.scss'],
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'add-edit-select-items',
+  templateUrl: './add-edit-select-items.dialog.html',
+  styleUrls: ['./add-edit-select-items.dialog.scss'],
 })
-export class SelectItemsComponent<T> {
+// eslint-disable-next-line @angular-eslint/component-class-suffix
+export class AddEditSelectItemsDialog<T> {
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};

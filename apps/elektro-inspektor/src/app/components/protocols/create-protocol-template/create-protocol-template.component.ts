@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { NbDialogService } from '@nebular/theme';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { AddEditSelectItemsDialog } from '@fogll-monorepo/fogll-forms';
 import { take } from 'rxjs';
-import { SelectItemsComponent } from '../select-items/select-items.component';
 
 interface ProtocolRow {
   protocolCol: ProtocolCol[];
@@ -107,7 +107,7 @@ export class CreateProtocolTemplateComponent {
 
   openWindow() {
     const dialog = this.dialogService.open(
-      SelectItemsComponent,
+      AddEditSelectItemsDialog,
     );
     dialog.onClose.pipe(
       take(1)

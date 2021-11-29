@@ -24,29 +24,29 @@
         style="position: relative"
       >
         <formly-field [field]="field"></formly-field>
-        <button
-          type="button"
-          nbButton
-          ghost
-          status="primary"
-          size="small"
-          (click)="editItem(i)"
-          style="position: absolute; top: 0; right: 1rem"
-        >
-          <nb-icon icon="settings-2-outline"></nb-icon>
-        </button>
-        <button
-          *ngIf="to.removeText"
-          type="button"
-          nbButton
-          ghost
-          status="danger"
-          size="small"
-          (click)="remove(i)"
-          style="position: absolute; top: 0; right: 0"
-        >
-          <nb-icon icon="trash"></nb-icon>
-        </button>
+        <span style="position: absolute; top: 0; right: 0" fxLayoutGap=".5rem">
+          <button
+            type="button"
+            nbButton
+            ghost
+            status="primary"
+            size="small"
+            (click)="editItem(i)"
+          >
+            <nb-icon icon="settings-2-outline"></nb-icon>
+          </button>
+          <button
+            *ngIf="to.removeText"
+            type="button"
+            nbButton
+            ghost
+            status="danger"
+            size="small"
+            (click)="remove(i)"
+          >
+            <nb-icon icon="trash"></nb-icon>
+          </button>
+        </span>
       </div>
     </div>
   </div>
