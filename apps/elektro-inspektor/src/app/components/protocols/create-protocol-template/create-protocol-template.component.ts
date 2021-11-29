@@ -35,10 +35,7 @@ export class CreateProtocolTemplateComponent {
       templateOptions: {
         addText: 'Nový řádek',
         removeText: 'Odstranit řádek',
-        editItem: ($event: any) => {
-          console.log($event)
-          this.openWindow();
-        }
+        editItem: ($event: any) => this.openWindow($event),
       },
       fieldArray: {
         fieldGroupClassName: 'form-row',
@@ -51,10 +48,7 @@ export class CreateProtocolTemplateComponent {
               addText: 'Nová buňka',
               removeText: 'Odstranit element',
               isRow: true,
-              editItem: ($event: any) => {
-                console.log($event)
-                this.openWindow();
-              }
+              editItem: ($event: any) => this.openWindow($event),
             },
             fieldArray: {
               fieldGroup: [
@@ -62,6 +56,7 @@ export class CreateProtocolTemplateComponent {
                   type: 'select',
                   key: 'elementType',
                   defaultValue: 'input',
+                  className: 'pokus',
                   templateOptions: {
                     label: 'Typ elementu',
                     options: [
@@ -105,7 +100,8 @@ export class CreateProtocolTemplateComponent {
     localStorage.clear();
   }
 
-  openWindow() {
+  openWindow(event: any) {
+    console.log('event', event)
     const dialog = this.dialogService.open(
       AddEditSelectItemsDialog,
     );

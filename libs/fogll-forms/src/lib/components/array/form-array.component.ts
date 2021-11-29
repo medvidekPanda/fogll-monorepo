@@ -8,6 +8,9 @@ import { FieldArrayType } from '@ngx-formly/core';
 })
 export class FormArrayComponent extends FieldArrayType {
   editItem(index: number) {
-    this.to.editItem(this.model[index]);
+    this.to.editItem({
+      key: this.key,
+      model: this.model[index],
+    });
   }
 }

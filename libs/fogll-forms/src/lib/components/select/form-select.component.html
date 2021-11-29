@@ -4,6 +4,7 @@
   [formlyAttributes]="field"
   [selected]="field?.defaultValue"
   size="small"
+  fullWidth="true"
 >
   <nb-option *ngFor="let option of field.templateOptions?.options" [value]="option.value">{{
     option.label

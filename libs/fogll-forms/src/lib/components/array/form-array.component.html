@@ -17,13 +17,13 @@
     </button>
     <div fxFlex [fxLayout]="to.isRow ? 'row' : 'column'">
       <div
-        [fxFlex]="to.isRow ? '1 1 250px' : '1 1 0'"
+        [fxFlex]="to.isRow ? '1 1 0' : '1 1 0'"
         fxLayoutGap="1rem"
         [fxLayout]="to.isRow ? 'row' : 'column'"
         *ngFor="let field of field.fieldGroup; let i = index"
         style="position: relative"
       >
-        <formly-field [field]="field"></formly-field>
+        <formly-field [field]="field" fxFlex="1 1 0"></formly-field>
         <span style="position: absolute; top: 0; right: 0" fxLayoutGap=".5rem">
           <button
             type="button"
